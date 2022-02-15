@@ -10,28 +10,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAP524CashRegister">
         <activity
-            android:name=".HistoryDetail"
+            android:name=".HistoryDetailActivity"
             android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".History" />
+                android:value=".HistoryActivity" />
         </activity>
         <activity
-            android:name=".Restock"
+            android:name=".RestockActivity"
             android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ManagerPanel" />
+                android:value=".ManagerPanelActivity" />
         </activity>
         <activity
-            android:name=".History"
+            android:name=".HistoryActivity"
             android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ManagerPanel" />
+                android:value=".ManagerPanelActivity" />
         </activity>
         <activity
-            android:name=".ManagerPanel"
+            android:name=".ManagerPanelActivity"
             android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

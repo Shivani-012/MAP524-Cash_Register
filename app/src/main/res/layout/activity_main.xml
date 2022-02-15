@@ -7,61 +7,85 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/productText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        android:text="Product Type"
+        android:textSize="24sp"
+
+        app:layout_constraintEnd_toStartOf="@+id/managerBtn"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <TextView
-        android:text="Product Type"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-    </TextView>
-
     <Button
+        android:id="@+id/managerBtn"
         android:text="Manager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-    </Button>
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <NumberPicker
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-    </NumberPicker>
-
-    <TextView
-        android:text="Total Amount"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-    </TextView>
-
-    <TextView
-        android:text="Quantity"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-    </TextView>
-
-    <Button
-        android:text="BUY"
+        android:id="@+id/numPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-    </Button>
 
-    <ListView
+        app:layout_constraintBottom_toTopOf="@+id/buyBtn"
+        app:layout_constraintEnd_toStartOf="@+id/midGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quantityText" />
+
+    <TextView
+        android:id="@+id/totalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Amount"
+        android:textSize="24sp"
+
+        app:layout_constraintBottom_toTopOf="@id/buyBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/midGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/quantityText" />
+
+    <TextView
+        android:id="@+id/quantityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity"
+        android:textSize="24sp"
+
+        app:layout_constraintEnd_toStartOf="@+id/managerBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productText" />
+
+    <Button
+        android:id="@+id/buyBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
+        android:text="BUY"
+
+        app:layout_constraintBottom_toTopOf="@+id/productList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/productList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" >
     </ListView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/midGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
