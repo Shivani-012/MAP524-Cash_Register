@@ -1,7 +1,9 @@
 package com.example.map524_cashregister;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +12,8 @@ import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements View.OnClickListener{
@@ -26,14 +30,27 @@ public class MainActivity extends AppCompatActivity
 
     ListView product_list;
 
+    Purchase mainPurchase;
+    ProductManager productList;
+    HistoryManager historyManager;
+
+    AlertDialog.Builder builder;
+
+    //double productPrice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        builder = new AlertDialog.Builder(this);
+
+        mainPurchase = ((MyApp)getApplication()).mainPurchase;
+        ArrayList<Product> productList = ((MyApp)getApplication()).productList.getAllProducts();
+        historyManager = ((MyApp)getApplication()).historyList;
+
         // ??
         product_text = findViewById(R.id.productText);
-        product_text.setOnClickListener(this);
         qty_text = findViewById(R.id.quantityText);
         total_text = findViewById(R.id.totalText);
 
@@ -55,6 +72,10 @@ public class MainActivity extends AppCompatActivity
                 public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                     Log.e("test", "e changed to" + newVal);
 
+                    mainPurchase.setQuantity(newVal);
+                    qty_text.setText(String.valueOf(newVal));
+                    //total_text.setText(newVal*productPrice);
+
                     // update quantity text
                     // update history object
                     // update total
@@ -66,8 +87,9 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-            product_list = findViewById(R.id.productList);
-        //product_list.setOnItemClickListener(this);
+        product_list = findViewById(R.id.productList);
+        ProductBaseAdapter productAdapter = new ProductBaseAdapter(productList, this);
+        product_list.setAdapter(productAdapter);
 
     }
 
@@ -79,6 +101,10 @@ public class MainActivity extends AppCompatActivity
         switch(id){
             case R.id.managerBtn:
                 // open manager activity
+
+                Intent myIntent = new Intent(this, ManagerPanelActivity.class);
+                startActivity(myIntent);
+
                 Log.e("test", "manager clicked");
                 break;
             case R.id.buyBtn:
@@ -90,6 +116,19 @@ public class MainActivity extends AppCompatActivity
                 // display pop-up that purchase was successful
                 // add order to history list
                 // set to a new history/purchase
+                builder.setTitle("Thank you for your Purchase!");
+                builder.setMessage("Your purchase of " + mainPurchase.getQuantity() + " "
+                        + mainPurchase.getName() + " for $" + mainPurchase.getTotalPrice());
+                builder.show();
+                builder.setCancelable(true);
+
+                historyManager.addPurchase(mainPurchase);
+
+                ((MyApp)getApplication()).mainPurchase = new Purchase();
+
+                mainPurchase = new Purchase();
+
+
                 Log.e("test", "buy clicked");
                 break;
             case R.id.numPicker:
