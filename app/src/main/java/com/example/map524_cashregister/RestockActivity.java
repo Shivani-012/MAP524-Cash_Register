@@ -30,6 +30,9 @@ public class RestockActivity extends AppCompatActivity
     // declare builder for alert dialog box
     AlertDialog.Builder builder;
 
+    // declare base adapter for products
+    ProductBaseAdapter productAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +60,7 @@ public class RestockActivity extends AppCompatActivity
         product_list = findViewById(R.id.productRestockList);
 
         // declare and initialize base adapter for product list
-        ProductBaseAdapter productAdapter = new ProductBaseAdapter(productList, this);
+        productAdapter = new ProductBaseAdapter(productList, this);
         product_list.setAdapter(productAdapter);
 
         // set on click listener for product list view items
@@ -119,8 +122,10 @@ public class RestockActivity extends AppCompatActivity
                     // update quantity of product
                     int productPos = productManager.getProductPos(selectedProduct.getName());
                     productManager.getAllProducts().get(productPos).setQuantity(productManager.getAllProducts().get(productPos).getQuantity() + addQty);
-                    ProductBaseAdapter productAdapter = new ProductBaseAdapter(productList, this);
-                    product_list.setAdapter(productAdapter);
+                    productAdapter.notifyDataSetChanged();
+
+                    // clear the quantity edit text
+                    new_qty_text.setText("");
 
                     // display alert that qty update was successful
                     builder.setTitle("Update Successful");

@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity
     // declare builder for alert dialog box
     AlertDialog.Builder builder;
 
+    // declare base adapter for products
+    ProductBaseAdapter productAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity
         product_list = findViewById(R.id.productList);
 
         // declare and initialize base adapter for product list
-        ProductBaseAdapter productAdapter = new ProductBaseAdapter(productList, this);
+        productAdapter = new ProductBaseAdapter(productList, this);
         product_list.setAdapter(productAdapter);
 
         // set on click listener for product list view items
@@ -166,8 +169,8 @@ public class MainActivity extends AppCompatActivity
             // if manager button is click, open manager panel activity
             case R.id.managerBtn:
                 // open manager activity
-                Intent myIntent = new Intent(this, ManagerPanelActivity.class);
-                startActivity(myIntent);
+                Intent managerIntent = new Intent(this, ManagerPanelActivity.class);
+                startActivity(managerIntent);
                 break;
 
             // if buy button is clicked...
@@ -180,7 +183,7 @@ public class MainActivity extends AppCompatActivity
                     // display alert that purchase was successful
                     builder.setTitle("Thank you for your Purchase!");
                     builder.setMessage("Your purchase of " + mainPurchase.getQuantity() + " "
-                            + mainPurchase.getName() + " for " + mainPurchase.getTotalPrice());
+                            + mainPurchase.getName() + "(s) for " + mainPurchase.getTotalPrice());
                     builder.show();
                     builder.setCancelable(true);
 
@@ -195,8 +198,7 @@ public class MainActivity extends AppCompatActivity
                     productManager.getAllProducts().get(productPos).setQuantity(productManager.getAllProducts().get(productPos).getQuantity() - mainPurchase.getQuantity());
 
                     // redisplay list view using base adapter
-                    ProductBaseAdapter productAdapter = new ProductBaseAdapter(productList, this);
-                    product_list.setAdapter(productAdapter);
+                    productAdapter.notifyDataSetChanged();
 
                     // reset all values
                     resetValues();

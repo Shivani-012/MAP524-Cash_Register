@@ -1,6 +1,7 @@
 package com.example.map524_cashregister;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Purchase {
@@ -60,8 +61,10 @@ public class Purchase {
     }
 
     // getter for purchase date
-    public Date getPurchaseDate() {
-        return purchaseDate;
+    public String getPurchaseDate() {
+        // set date format for date and time
+        SimpleDateFormat formatter = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z");
+        return formatter.format(this.purchaseDate);
     }
 
     // setter for purchase date
