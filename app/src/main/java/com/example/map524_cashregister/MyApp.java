@@ -11,6 +11,7 @@ public class MyApp extends Application {
     Product[] products = {pants, shoes, hats};
 
     ProductManager productList = new ProductManager(products, products.length);
+    Product selectedProduct = new Product();
 
     HistoryManager historyList = new HistoryManager();
     Purchase mainPurchase = new Purchase();

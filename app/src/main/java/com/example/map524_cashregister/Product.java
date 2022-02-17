@@ -6,6 +6,12 @@ public class Product {
     private int quantity;
     private double price;
 
+    Product(){
+        name = null;
+        quantity = 0;
+        price= 0.00;
+    }
+
     Product(String n, int q, double p){
         name = n;
         quantity = q;
@@ -24,7 +30,7 @@ public class Product {
         return quantity;
     }
 
-    void setName(int q){
+    void setQuantity(int q){
         quantity = q;
     }
 

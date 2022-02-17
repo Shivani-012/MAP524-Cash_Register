@@ -1,5 +1,6 @@
 package com.example.map524_cashregister;
 
+import java.text.NumberFormat;
 import java.util.Date;
 
 public class Purchase {
@@ -11,8 +12,8 @@ public class Purchase {
 
     Purchase(){
         productName = null;
-        quantity = -1;
-        totalPrice = -1;
+        quantity = 0;
+        totalPrice = 0;
         purchaseDate = null;
     }
 
@@ -39,8 +40,9 @@ public class Purchase {
         this.quantity = quantity;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
+    public String getTotalPrice() {
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        return String.valueOf(formatter.format(totalPrice));
     }
 
     public void setTotalPrice(double totalPrice) {
@@ -53,6 +55,14 @@ public class Purchase {
 
     public void setPurchaseDate(Date purchaseDate) {
         this.purchaseDate = purchaseDate;
+    }
+
+    // Method that checks if a product is selected and the quantity is valid (more than 0)
+    public boolean isValid(){
+        if(this.getName()==null || this.getQuantity() <= 0){
+            return false;
+        }
+        return true;
     }
 
 }

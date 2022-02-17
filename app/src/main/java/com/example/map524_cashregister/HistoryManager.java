@@ -11,9 +11,8 @@ public class HistoryManager {
         allPurchases.add(purchase);
     }
 
-    public ArrayList getAllPurchases(){
+    public ArrayList getAllPurchases() {
         return allPurchases;
     }
-    
-    
+
 }
