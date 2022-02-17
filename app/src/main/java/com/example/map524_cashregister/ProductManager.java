@@ -4,22 +4,27 @@ import java.util.ArrayList;
 
 public class ProductManager {
 
-    private ArrayList<Product> allProducts = new ArrayList(0);
+    // declare array list of products
+    private ArrayList<Product> allProducts = new ArrayList<>();
 
-    ProductManager(Product[] products, int length){
-        for (int i = 0; i < length; i++){
-            this.addProduct(products[i]);
+    // constructor that accepts an array of products and pushes each into the list of products
+    ProductManager(Product[] products){
+        for (Product product : products) {
+            this.addProduct(product);
         }
     }
 
+    // method that returns array list of all products
     public ArrayList<Product> getAllProducts(){
         return allProducts;
     }
 
+    // method that adds a new product to the array of products
     public void addProduct(Product p){
         allProducts.add(p);
     }
 
+    // method that returns the position of the product with a name matching the String parameter
     public int getProductPos(String product) {
         for(int i = 0; i< allProducts.size(); i++){
             if(product.equals(allProducts.get(i).getName())){
