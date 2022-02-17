@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity
 
         productManager = ((MyApp)getApplication()).productList;
         productList = productManager.getAllProducts();
-        //productList = ((MyApp)getApplication()).productList.getAllProducts();
         selectedProduct = ((MyApp)getApplication()).selectedProduct;
 
         mainPurchase = ((MyApp)getApplication()).mainPurchase;
@@ -63,7 +62,6 @@ public class MainActivity extends AppCompatActivity
 
         total_text = findViewById(R.id.totalText);
         total_text.setText(String.valueOf(mainPurchase.getTotalPrice()));
-
 
         manager_btn = findViewById(R.id.managerBtn);
         manager_btn.setOnClickListener(this);
@@ -117,6 +115,12 @@ public class MainActivity extends AppCompatActivity
             selectedProduct = (Product)productList.get(position);
             mainPurchase.setName(selectedProduct.getName());
             product_text.setText(mainPurchase.getName());
+
+            for(int a = 0; a < parent.getChildCount(); a++) {
+                parent.getChildAt(a).setBackgroundColor(getResources().getColor(R.color.cardview_light_background, null));
+            }
+            v.setBackgroundColor(getResources().getColor(R.color.grey, null));
+
         }
     };
 
@@ -166,7 +170,7 @@ public class MainActivity extends AppCompatActivity
                 //      2) selected quantity is not over current available quantity
                 if(validatePurchase()){
 
-                    // display pop-up that purchase was successful
+                    // display alert that purchase was successful
                     builder.setTitle("Thank you for your Purchase!");
                     builder.setMessage("Your purchase of " + mainPurchase.getQuantity() + " "
                             + mainPurchase.getName() + " for " + mainPurchase.getTotalPrice());

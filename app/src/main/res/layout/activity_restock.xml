@@ -7,12 +7,14 @@
     tools:context=".RestockActivity">
 
     <EditText
-        android:id="@+id/qtyText"
+        android:id="@+id/qtyRestockText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter New Quantity"
         android:minHeight="48dp"
-        android:inputType="number"
+        android:inputType="numberSigned"
+        android:gravity="center_horizontal"
+
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +28,7 @@
 
         app:layout_constraintEnd_toStartOf="@id/cancelBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/qtyText" />
+        app:layout_constraintTop_toBottomOf="@id/qtyRestockText" />
 
     <Button
         android:id="@+id/cancelBtn"
@@ -36,9 +38,10 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/okBtn"
-        app:layout_constraintTop_toBottomOf="@id/qtyText" />
+        app:layout_constraintTop_toBottomOf="@id/qtyRestockText" />
 
     <ListView
+        android:id="@+id/productRestockList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
