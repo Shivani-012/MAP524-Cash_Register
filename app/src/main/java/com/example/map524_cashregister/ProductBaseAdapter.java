@@ -51,7 +51,7 @@ public class ProductBaseAdapter extends BaseAdapter {
         TextView qtyText = view.findViewById(R.id.row_qty);
         qtyText.setText(String.valueOf(listOfProducts.get(i).getQuantity()));
         TextView priceText = view.findViewById(R.id.row_price);
-        priceText.setText(String.valueOf(listOfProducts.get(i).getPrice()));
+        priceText.setText(listOfProducts.get(i).getPriceString());
 
         return view; // return view
     }

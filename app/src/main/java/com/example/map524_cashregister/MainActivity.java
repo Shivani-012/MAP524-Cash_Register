@@ -85,12 +85,17 @@ public class MainActivity extends AppCompatActivity
             qty_picker.setWrapSelectorWheel(true);
             // if picker value is changed...
             qty_picker.setOnValueChangedListener((picker, oldQty, newQty) -> {
-                // update mainPurchase's quantity and set quantity text
-                mainPurchase.setQuantity(newQty);
+                // set quantity text to new quantity
                 qty_text.setText(String.valueOf(newQty));
-                // update mainPurchase's total and set total text
-                mainPurchase.setTotalPrice(selectedProduct.getPrice() * newQty);
-                total_text.setText(mainPurchase.getTotalPrice());
+
+                // if a product has been selected...
+                if (mainPurchase.getName() != null){
+                    // update mainPurchase's quantity and set quantity text
+                    mainPurchase.setQuantity(newQty);
+                    // update mainPurchase's total and set total text
+                    mainPurchase.setTotalPrice(selectedProduct.getPrice() * newQty);
+                    total_text.setText(mainPurchase.getTotalPrice());
+                }
             });
         }
 

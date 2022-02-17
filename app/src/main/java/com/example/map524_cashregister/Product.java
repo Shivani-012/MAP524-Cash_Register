@@ -1,5 +1,7 @@
 package com.example.map524_cashregister;
 
+import java.text.NumberFormat;
+
 public class Product {
 
     // declare variables for product name, quantity and price
@@ -44,6 +46,13 @@ public class Product {
     // getter for product price
     double getPrice() {
         return price;
+    }
+
+    // getter for product price that returns it as a formatted string
+    String getPriceString() {
+        // set number format for currency
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        return String.valueOf(formatter.format(price));
     }
 
     // setter for product price
