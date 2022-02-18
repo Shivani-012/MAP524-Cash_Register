@@ -4,9 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/shiva/AndroidStudioProjects/MAP524CashRegister/app/src/main/res/layout/activity_history.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/shiva/AndroidStudioProjects/MAP524CashRegister/app/src/main/res/layout/activity_history_detail.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/shiva/AndroidStudioProjects/MAP524CashRegister/app/src/main/res/layout/activity_history_detail.xml" value="0.1" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/MAP524CashRegister/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/shiva/AndroidStudioProjects/MAP524CashRegister/app/src/main/res/layout/activity_manager_panel.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/shiva/AndroidStudioProjects/MAP524CashRegister/app/src/main/res/layout/activity_manager_panel.xml" value="0.1" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/MAP524CashRegister/app/src/main/res/layout/activity_restock.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/MAP524CashRegister/app/src/main/res/layout/base_adapter_product_row.xml" value="0.264" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/MAP524CashRegister/app/src/main/res/layout/product_row_layout.xml" value="0.25416666666666665" />

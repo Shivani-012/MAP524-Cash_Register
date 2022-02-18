@@ -28,11 +28,6 @@ public class Product {
         return name;
     }
 
-    // setter for product name
-    void setName(String n){
-        name = n;
-    }
-
     // getter for product quantity
     int getQuantity() {
         return quantity;
@@ -52,11 +47,6 @@ public class Product {
     String getPriceString() {
         // set number format for currency
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        return String.valueOf(formatter.format(price));
-    }
-
-    // setter for product price
-    void setPrice(double p){
-        price = p;
+        return formatter.format(price);
     }
 }

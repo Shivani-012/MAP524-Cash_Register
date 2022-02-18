@@ -28,10 +28,10 @@ public class HistoryDetailActivity extends AppCompatActivity {
 
         // initialize quantity text field and set text from intent's extras
         qtyText = findViewById(R.id.detailQty);
-        qtyText.setText("Quantity: " + getIntent().getExtras().getString("qty"));
+        qtyText.setText(getString(R.string.quantityDetailLabel) + getIntent().getExtras().getString("qty"));
 
         // initialize total price text field and set text from intent's extras
         totalText = findViewById(R.id.detailPrice);
-        totalText.setText("Total: " + getIntent().getExtras().getString("total"));
+        totalText.setText(getString(R.string.totalDetailLabel) + getIntent().getExtras().getString("total"));
     }
 }

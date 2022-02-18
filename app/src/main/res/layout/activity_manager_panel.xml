@@ -10,7 +10,7 @@
         android:id="@+id/historyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="History"
+        android:text="@string/historyBtnText"
 
         app:layout_constraintBottom_toTopOf="@+id/middleGuideline"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
         android:id="@+id/restockBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Restock"
+        android:text="@string/restockBtnText"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

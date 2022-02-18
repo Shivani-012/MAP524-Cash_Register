@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MAP524 - Cash Register</string>
+    <string name="buyBtnText">BUY</string>
+    <string name="managerBtnText">Manager</string>
+    <string name="historyBtnText">History</string>
+    <string name="restockBtnText">Restock</string>
+    <string name="restock_enter_new_quantity_hint">Enter New Quantity</string>
+    <string name="okBtnText">OK</string>
+    <string name="cancelBtnText">CANCEL</string>
+    <string name="quantityDetailLabel">\"Quantity: \"</string>
+    <string name="totalDetailLabel">\"Total: \"</string>
 </resources>

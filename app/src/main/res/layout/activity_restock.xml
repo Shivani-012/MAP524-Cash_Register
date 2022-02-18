@@ -10,7 +10,7 @@
         android:id="@+id/qtyRestockText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter New Quantity"
+        android:hint="@string/restock_enter_new_quantity_hint"
         android:minHeight="48dp"
         android:inputType="numberSigned"
         android:gravity="center_horizontal"
@@ -24,7 +24,7 @@
         android:id="@+id/okBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OK"
+        android:text="@string/okBtnText"
 
         app:layout_constraintEnd_toStartOf="@id/cancelBtn"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
         android:id="@+id/cancelBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CANCEL"
+        android:text="@string/cancelBtnText"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/okBtn"
